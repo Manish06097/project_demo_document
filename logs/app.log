@@ -1,0 +1,184 @@
+2024-12-20 19:50:26,951 - INFO - File 'Doc (1).pdf' uploaded and saved to Input Folder.
+2024-12-20 19:50:28,503 - INFO - Uploaded document 'Doc (1).pdf' to Docupanda with Document ID: aeda1f5c
+2024-12-20 19:50:28,504 - INFO - Uploaded 'Doc (1).pdf' to Docupanda with Document ID: aeda1f5c
+2024-12-20 19:50:49,284 - INFO - Standardization initiated for documents: ['aeda1f5c']
+2024-12-20 19:50:49,285 - INFO - Standardization initiated with Standardization ID: fa473e79
+2024-12-20 19:51:10,021 - INFO - Retrieved data for Standardization ID: fa473e79
+2024-12-20 19:51:11,475 - ERROR - Error processing file 'Doc (1).pdf': File is not a zip file
+2024-12-20 19:54:53,089 - INFO - File 'Doc (1).pdf' uploaded and saved to Input Folder.
+2024-12-20 19:54:55,023 - INFO - Uploaded document 'Doc (1).pdf' to Docupanda with Document ID: b1e388ed
+2024-12-20 19:54:55,024 - INFO - Uploaded 'Doc (1).pdf' to Docupanda with Document ID: b1e388ed
+2024-12-20 19:55:05,892 - ERROR - HTTP error occurred during standardization: 404 Client Error: Not Found for url: https://app.docupanda.io/standardize/batch - Response Content: {"detail":"No documents found to process. If you're trying to reprocess, set forceRecompute=True"}
+2024-12-20 19:55:26,542 - INFO - File 'Doc (1).pdf' uploaded and saved to Input Folder.
+2024-12-20 19:55:28,167 - INFO - Uploaded document 'Doc (1).pdf' to Docupanda with Document ID: 255d0b31
+2024-12-20 19:55:28,168 - INFO - Uploaded 'Doc (1).pdf' to Docupanda with Document ID: 255d0b31
+2024-12-20 19:55:48,938 - INFO - Standardization initiated for documents: ['255d0b31']
+2024-12-20 19:55:48,939 - INFO - Standardization initiated with Standardization ID: 03b7659f
+2024-12-20 19:56:09,702 - INFO - Retrieved data for Standardization ID: 03b7659f
+2024-12-20 19:56:09,779 - ERROR - Error processing file 'Doc (1).pdf': File is not a zip file
+2024-12-20 19:58:37,434 - INFO - File 'Doc (1).pdf' uploaded and saved to Input Folder.
+2024-12-20 19:58:38,995 - INFO - Uploaded document 'Doc (1).pdf' to Docupanda with Document ID: ce1b59cf
+2024-12-20 19:58:38,996 - INFO - Uploaded 'Doc (1).pdf' to Docupanda with Document ID: ce1b59cf
+2024-12-20 19:58:59,845 - INFO - Standardization initiated for documents: ['ce1b59cf']
+2024-12-20 19:58:59,845 - INFO - Standardization initiated with Standardization ID: ba386629
+2024-12-20 19:59:20,739 - INFO - Retrieved data for Standardization ID: ba386629
+2024-12-20 19:59:20,746 - ERROR - Error processing file 'Doc (1).pdf': File is not a zip file
+2024-12-20 20:01:41,767 - INFO - File 'Doc (1).pdf' uploaded and saved to Input Folder.
+2024-12-20 20:01:43,512 - INFO - Uploaded document 'Doc (1).pdf' to Docupanda with Document ID: b17c3f06
+2024-12-20 20:01:43,513 - INFO - Uploaded 'Doc (1).pdf' to Docupanda with Document ID: b17c3f06
+2024-12-20 20:02:04,280 - INFO - Standardization initiated for documents: ['b17c3f06']
+2024-12-20 20:02:04,282 - INFO - Standardization initiated with Standardization ID: 1379c901
+2024-12-20 20:02:25,066 - INFO - Retrieved data for Standardization ID: 1379c901
+2024-12-20 20:02:25,071 - ERROR - Error processing file 'Doc (1).pdf': File is not a zip file
+2024-12-20 20:03:21,874 - INFO - File 'Doc (1).pdf' uploaded and saved to Input Folder.
+2024-12-20 20:03:23,444 - INFO - Uploaded document 'Doc (1).pdf' to Docupanda with Document ID: 6301c7d3
+2024-12-20 20:03:23,445 - INFO - Uploaded 'Doc (1).pdf' to Docupanda with Document ID: 6301c7d3
+2024-12-20 20:03:44,190 - INFO - Standardization initiated for documents: ['6301c7d3']
+2024-12-20 20:03:44,191 - INFO - Standardization initiated with Standardization ID: 6e8b4fd8
+2024-12-20 20:04:05,167 - INFO - Retrieved data for Standardization ID: 6e8b4fd8
+2024-12-20 20:04:05,188 - ERROR - Error processing file 'Doc (1).pdf': File is not a zip file
+2024-12-20 20:05:54,901 - INFO - File 'Doc (1).pdf' uploaded and saved to Input Folder.
+2024-12-20 20:05:56,529 - INFO - Uploaded document 'Doc (1).pdf' to Docupanda with Document ID: 10c6c553
+2024-12-20 20:05:56,530 - INFO - Uploaded 'Doc (1).pdf' to Docupanda with Document ID: 10c6c553
+2024-12-20 20:06:17,519 - INFO - Standardization initiated for documents: ['10c6c553']
+2024-12-20 20:06:17,520 - INFO - Standardization initiated with Standardization ID: 20dc6e19
+2024-12-20 20:06:38,298 - INFO - Retrieved data for Standardization ID: 20dc6e19
+2024-12-20 20:06:38,316 - ERROR - Error processing file 'Doc (1).pdf': File is not a zip file
+2024-12-20 20:10:29,368 - INFO - File 'Doc (1).pdf' uploaded and saved to Input Folder.
+2024-12-20 20:10:31,452 - INFO - Uploaded document 'Doc (1).pdf' to Docupanda with Document ID: a9051b5e
+2024-12-20 20:10:31,453 - INFO - Uploaded 'Doc (1).pdf' to Docupanda with Document ID: a9051b5e
+2024-12-20 20:10:52,370 - INFO - Standardization initiated for documents: ['a9051b5e']
+2024-12-20 20:10:52,371 - INFO - Standardization initiated with Standardization ID: 11240bcd
+2024-12-20 20:11:13,233 - INFO - Retrieved data for Standardization ID: 11240bcd
+2024-12-20 20:11:13,314 - ERROR - Error saving data to Excel: File is not a zip file. Attempting to recreate the Excel file.
+2024-12-20 20:11:13,320 - INFO - Recreated and saved data to 'to_be_processed/existing_data.xlsx'.
+2024-12-20 20:11:13,321 - INFO - File 'Doc (1).pdf' moved to Archive Folder.
+2024-12-20 20:26:23,827 - INFO - File 'Doc (1).pdf' uploaded and saved to Input Folder.
+2024-12-20 20:26:25,329 - INFO - Uploaded document 'Doc (1).pdf' to Docupanda with Document ID: 3c403c80
+2024-12-20 20:26:25,330 - INFO - Uploaded 'Doc (1).pdf' to Docupanda with Document ID: 3c403c80
+2024-12-20 20:26:26,130 - ERROR - HTTP error occurred during standardization: 404 Client Error: Not Found for url: https://app.docupanda.io/standardize/batch - Response Content: {"detail":"No documents found to process. If you're trying to reprocess, set forceRecompute=True"}
+2024-12-20 20:28:57,627 - INFO - File 'Doc (1).pdf' uploaded and saved to Input Folder.
+2024-12-20 20:29:00,208 - INFO - Uploaded document 'Doc (1).pdf' to Docupanda with Document ID: 9b3879c6
+2024-12-20 20:29:00,209 - INFO - Uploaded 'Doc (1).pdf' to Docupanda with Document ID: 9b3879c6
+2024-12-20 20:29:11,114 - ERROR - HTTP error occurred during standardization: 404 Client Error: Not Found for url: https://app.docupanda.io/standardize/batch - Response Content: {"detail":"No documents found to process. If you're trying to reprocess, set forceRecompute=True"}
+2024-12-20 20:29:21,719 - INFO - File 'Doc (1).pdf' uploaded and saved to Input Folder.
+2024-12-20 20:29:23,443 - INFO - Uploaded document 'Doc (1).pdf' to Docupanda with Document ID: 1d7063a0
+2024-12-20 20:29:23,444 - INFO - Uploaded 'Doc (1).pdf' to Docupanda with Document ID: 1d7063a0
+2024-12-20 20:29:44,227 - INFO - Standardization initiated for documents: ['1d7063a0']
+2024-12-20 20:29:44,228 - INFO - Standardization initiated with Standardization ID: bc85bd4a
+2024-12-20 20:29:44,952 - ERROR - HTTP error occurred while retrieving data for Standardization ID 'bc85bd4a': 404 Client Error: Not Found for url: https://app.docupanda.io/standardization/bc85bd4a - Response Content: {"detail":"Standardization not found"}
+2024-12-20 20:29:55,849 - INFO - Retrieved data for Standardization ID: bc85bd4a
+2024-12-20 20:29:55,850 - INFO - Extracted data retrieved for Standardization ID: bc85bd4a
+2024-12-20 20:29:55,870 - INFO - Appended data to existing Excel file 'to_be_processed/existing_data.xlsx'.
+2024-12-20 20:30:06,826 - INFO - Retrieved data for Standardization ID: bc85bd4a
+2024-12-20 20:30:06,827 - INFO - Extracted data retrieved for Standardization ID: bc85bd4a
+2024-12-20 20:30:06,846 - INFO - Appended data to existing Excel file 'to_be_processed/existing_data.xlsx'.
+2024-12-20 20:30:17,804 - INFO - Retrieved data for Standardization ID: bc85bd4a
+2024-12-20 20:30:17,805 - INFO - Extracted data retrieved for Standardization ID: bc85bd4a
+2024-12-20 20:30:17,822 - INFO - Appended data to existing Excel file 'to_be_processed/existing_data.xlsx'.
+2024-12-20 20:30:28,720 - INFO - Retrieved data for Standardization ID: bc85bd4a
+2024-12-20 20:30:28,721 - INFO - Extracted data retrieved for Standardization ID: bc85bd4a
+2024-12-20 20:30:28,736 - INFO - Appended data to existing Excel file 'to_be_processed/existing_data.xlsx'.
+2024-12-20 20:30:39,510 - INFO - Retrieved data for Standardization ID: bc85bd4a
+2024-12-20 20:30:39,512 - INFO - Extracted data retrieved for Standardization ID: bc85bd4a
+2024-12-20 20:30:39,528 - INFO - Appended data to existing Excel file 'to_be_processed/existing_data.xlsx'.
+2024-12-20 20:30:50,267 - INFO - Retrieved data for Standardization ID: bc85bd4a
+2024-12-20 20:30:50,268 - INFO - Extracted data retrieved for Standardization ID: bc85bd4a
+2024-12-20 20:30:50,277 - INFO - Appended data to existing Excel file 'to_be_processed/existing_data.xlsx'.
+2024-12-20 20:31:01,225 - INFO - Retrieved data for Standardization ID: bc85bd4a
+2024-12-20 20:31:01,226 - INFO - Extracted data retrieved for Standardization ID: bc85bd4a
+2024-12-20 20:31:01,242 - INFO - Appended data to existing Excel file 'to_be_processed/existing_data.xlsx'.
+2024-12-20 20:34:12,247 - INFO - File 'Doc (1).pdf' uploaded and saved to Input Folder.
+2024-12-20 20:34:14,147 - INFO - Uploaded document 'Doc (1).pdf' to Docupanda with Document ID: 3fbb35e2
+2024-12-20 20:34:14,148 - INFO - Uploaded 'Doc (1).pdf' to Docupanda with Document ID: 3fbb35e2
+2024-12-20 20:34:35,072 - INFO - Standardization initiated for documents: ['3fbb35e2']
+2024-12-20 20:34:35,073 - INFO - Standardization initiated with Standardization ID: 7d4c35f3
+2024-12-20 20:34:35,850 - ERROR - HTTP error occurred while retrieving data for Standardization ID '7d4c35f3': 404 Client Error: Not Found for url: https://app.docupanda.io/standardization/7d4c35f3 - Response Content: {"detail":"Standardization not found"}
+2024-12-20 20:34:46,774 - INFO - Retrieved data for Standardization ID: 7d4c35f3
+2024-12-20 20:34:46,775 - INFO - Extracted data retrieved for Standardization ID: 7d4c35f3
+2024-12-20 20:34:46,873 - INFO - Appended data to existing Excel file 'to_be_processed/existing_data.xlsx'.
+2024-12-20 20:34:46,873 - INFO - Existing file 'archive_folder/Doc (1).pdf' removed to replace with the new file.
+2024-12-20 20:34:46,873 - INFO - File 'Doc (1).pdf' moved to Archive Folder at 'archive_folder/Doc (1).pdf'.
+2024-12-20 20:37:13,704 - INFO - File 'Doc (1).pdf' uploaded and saved to Input Folder.
+2024-12-20 20:37:15,482 - INFO - Uploaded document 'Doc (1).pdf' to Docupanda with Document ID: bd49c7d2
+2024-12-20 20:37:15,483 - INFO - Uploaded 'Doc (1).pdf' to Docupanda with Document ID: bd49c7d2
+2024-12-20 20:37:36,249 - INFO - Standardization initiated for documents: ['bd49c7d2']
+2024-12-20 20:37:36,250 - INFO - Standardization initiated with Standardization ID: 0f2ad156
+2024-12-20 20:37:37,063 - ERROR - HTTP error occurred while retrieving data for Standardization ID '0f2ad156': 404 Client Error: Not Found for url: https://app.docupanda.io/standardization/0f2ad156 - Response Content: {"detail":"Standardization not found"}
+2024-12-20 20:37:57,952 - INFO - Retrieved data for Standardization ID: 0f2ad156
+2024-12-20 20:37:57,952 - INFO - Extracted data retrieved for Standardization ID: 0f2ad156
+2024-12-20 20:37:57,961 - INFO - Appended data to existing Excel file 'to_be_processed/existing_data.xlsx'.
+2024-12-20 20:37:57,961 - INFO - Existing file 'archive_folder/Doc (1).pdf' removed to replace with the new file.
+2024-12-20 20:37:57,961 - INFO - File 'Doc (1).pdf' moved to Archive Folder at 'archive_folder/Doc (1).pdf'.
+2024-12-20 20:40:34,582 - INFO - File 'Doc (1).pdf' uploaded and saved to Input Folder.
+2024-12-20 20:40:36,126 - INFO - Uploaded document 'Doc (1).pdf' to Docupanda with Document ID: e049c5ba
+2024-12-20 20:40:36,127 - INFO - Uploaded 'Doc (1).pdf' to Docupanda with Document ID: e049c5ba
+2024-12-20 20:40:57,080 - INFO - Standardization initiated for documents: ['e049c5ba']
+2024-12-20 20:40:57,081 - INFO - Standardization initiated with Standardization ID: f882977d
+2024-12-20 20:40:57,976 - ERROR - HTTP error occurred while retrieving data for Standardization ID 'f882977d': 404 Client Error: Not Found for url: https://app.docupanda.io/standardization/f882977d - Response Content: {"detail":"Standardization not found"}
+2024-12-20 20:41:18,863 - INFO - Retrieved data for Standardization ID: f882977d
+2024-12-20 20:41:18,863 - INFO - Extracted data retrieved for Standardization ID: f882977d
+2024-12-20 20:41:18,878 - INFO - Read existing Excel file 'to_be_processed/existing_data.xlsx'.
+2024-12-20 20:41:18,878 - INFO - Concatenated new data as additional columns.
+2024-12-20 20:41:18,889 - INFO - Added new columns to existing Excel file 'to_be_processed/existing_data.xlsx'.
+2024-12-20 20:41:18,890 - INFO - Existing file 'archive_folder/Doc (1).pdf' removed to replace with the new file.
+2024-12-20 20:41:18,890 - INFO - File 'Doc (1).pdf' moved to Archive Folder at 'archive_folder/Doc (1).pdf'.
+2024-12-20 20:44:06,237 - INFO - File 'Doc (1).pdf' uploaded and saved to Input Folder.
+2024-12-20 20:44:07,996 - INFO - Uploaded document 'Doc (1).pdf' to Docupanda with Document ID: a522ccf2
+2024-12-20 20:44:07,997 - INFO - Uploaded 'Doc (1).pdf' to Docupanda with Document ID: a522ccf2
+2024-12-20 20:44:28,768 - INFO - Standardization initiated for documents: ['a522ccf2']
+2024-12-20 20:44:28,769 - INFO - Standardization initiated with Standardization ID: 87408e42
+2024-12-20 20:44:29,512 - ERROR - HTTP error occurred while retrieving data for Standardization ID '87408e42': 404 Client Error: Not Found for url: https://app.docupanda.io/standardization/87408e42 - Response Content: {"detail":"Standardization not found"}
+2024-12-20 20:44:50,417 - INFO - Retrieved data for Standardization ID: 87408e42
+2024-12-20 20:44:50,418 - INFO - Extracted data retrieved for Standardization ID: 87408e42
+2024-12-20 20:44:50,429 - INFO - Created new Excel file 'to_be_processed/existing_data.xlsx' and saved data.
+2024-12-20 20:44:50,430 - INFO - Existing file 'archive_folder/Doc (1).pdf' removed to replace with the new file.
+2024-12-20 20:44:50,430 - INFO - File 'Doc (1).pdf' moved to Archive Folder at 'archive_folder/Doc (1).pdf'.
+2024-12-20 20:45:52,976 - INFO - File 'Doc.pdf' uploaded and saved to Input Folder.
+2024-12-20 20:45:56,065 - INFO - Uploaded document 'Doc.pdf' to Docupanda with Document ID: d4ef1392
+2024-12-20 20:45:56,066 - INFO - Uploaded 'Doc.pdf' to Docupanda with Document ID: d4ef1392
+2024-12-20 20:46:16,956 - INFO - Standardization initiated for documents: ['d4ef1392']
+2024-12-20 20:46:16,957 - INFO - Standardization initiated with Standardization ID: f5764522
+2024-12-20 20:46:17,876 - ERROR - HTTP error occurred while retrieving data for Standardization ID 'f5764522': 404 Client Error: Not Found for url: https://app.docupanda.io/standardization/f5764522 - Response Content: {"detail":"Standardization not found"}
+2024-12-20 20:46:38,679 - INFO - Retrieved data for Standardization ID: f5764522
+2024-12-20 20:46:38,680 - INFO - Extracted data retrieved for Standardization ID: f5764522
+2024-12-20 20:46:38,692 - INFO - Read existing Excel file 'to_be_processed/existing_data.xlsx'.
+2024-12-20 20:46:38,693 - INFO - Concatenated new data as additional columns.
+2024-12-20 20:46:38,703 - INFO - Added new columns to existing Excel file 'to_be_processed/existing_data.xlsx'.
+2024-12-20 20:46:38,704 - INFO - File 'Doc.pdf' moved to Archive Folder at 'archive_folder/Doc.pdf'.
+2024-12-20 20:48:55,866 - INFO - File 'Doc.pdf' uploaded and saved to Input Folder.
+2024-12-20 20:48:57,571 - INFO - Uploaded document 'Doc.pdf' to Docupanda with Document ID: 9d072466
+2024-12-20 20:48:57,572 - INFO - Uploaded 'Doc.pdf' to Docupanda with Document ID: 9d072466
+2024-12-20 20:49:18,529 - INFO - Standardization initiated for documents: ['9d072466']
+2024-12-20 20:49:18,530 - INFO - Standardization initiated with Standardization ID: 7d56cc5c
+2024-12-20 20:49:19,353 - ERROR - HTTP error occurred while retrieving data for Standardization ID '7d56cc5c': 404 Client Error: Not Found for url: https://app.docupanda.io/standardization/7d56cc5c - Response Content: {"detail":"Standardization not found"}
+2024-12-20 20:49:40,218 - INFO - Retrieved data for Standardization ID: 7d56cc5c
+2024-12-20 20:49:40,219 - INFO - Extracted data retrieved for Standardization ID: 7d56cc5c
+2024-12-20 20:49:40,232 - INFO - Created new Excel file 'to_be_processed/existing_data.xlsx' and saved data.
+2024-12-20 20:49:40,232 - INFO - Existing file 'archive_folder/Doc.pdf' removed to replace with the new file.
+2024-12-20 20:49:40,233 - INFO - File 'Doc.pdf' moved to Archive Folder at 'archive_folder/Doc.pdf'.
+2024-12-20 20:50:30,080 - INFO - File 'ISHUR000048718_20240812_131954_Signed.pdf' uploaded and saved to Input Folder.
+2024-12-20 20:50:32,363 - INFO - Uploaded document 'ISHUR000048718_20240812_131954_Signed.pdf' to Docupanda with Document ID: 6510c077
+2024-12-20 20:50:32,364 - INFO - Uploaded 'ISHUR000048718_20240812_131954_Signed.pdf' to Docupanda with Document ID: 6510c077
+2024-12-20 20:50:53,372 - INFO - Standardization initiated for documents: ['6510c077']
+2024-12-20 20:50:53,374 - INFO - Standardization initiated with Standardization ID: 27718297
+2024-12-20 20:50:54,218 - ERROR - HTTP error occurred while retrieving data for Standardization ID '27718297': 404 Client Error: Not Found for url: https://app.docupanda.io/standardization/27718297 - Response Content: {"detail":"Standardization not found"}
+2024-12-20 20:51:15,035 - ERROR - HTTP error occurred while retrieving data for Standardization ID '27718297': 404 Client Error: Not Found for url: https://app.docupanda.io/standardization/27718297 - Response Content: {"detail":"Standardization not found"}
+2024-12-20 20:51:35,932 - INFO - Retrieved data for Standardization ID: 27718297
+2024-12-20 20:51:35,933 - INFO - Extracted data retrieved for Standardization ID: 27718297
+2024-12-20 20:51:35,943 - INFO - Existing Excel file 'to_be_processed/existing_data.xlsx' read successfully.
+2024-12-20 20:51:35,947 - INFO - Dataframes concatenated successfully.
+2024-12-20 20:51:35,955 - INFO - Appended new data to Excel file 'to_be_processed/existing_data.xlsx'.
+2024-12-20 20:51:35,955 - INFO - File 'ISHUR000048718_20240812_131954_Signed.pdf' moved to Archive Folder at 'archive_folder/ISHUR000048718_20240812_131954_Signed.pdf'.
+2024-12-20 20:52:32,085 - INFO - File 'Doc (1).pdf' uploaded and saved to Input Folder.
+2024-12-20 20:52:33,623 - INFO - Uploaded document 'Doc (1).pdf' to Docupanda with Document ID: 8a85606e
+2024-12-20 20:52:33,624 - INFO - Uploaded 'Doc (1).pdf' to Docupanda with Document ID: 8a85606e
+2024-12-20 20:52:54,588 - INFO - Standardization initiated for documents: ['8a85606e']
+2024-12-20 20:52:54,589 - INFO - Standardization initiated with Standardization ID: c69fe4bf
+2024-12-20 20:53:15,354 - INFO - Retrieved data for Standardization ID: c69fe4bf
+2024-12-20 20:53:15,355 - INFO - Extracted data retrieved for Standardization ID: c69fe4bf
+2024-12-20 20:53:15,368 - INFO - Existing Excel file 'to_be_processed/existing_data.xlsx' read successfully.
+2024-12-20 20:53:15,369 - INFO - Dataframes concatenated successfully.
+2024-12-20 20:53:15,377 - INFO - Appended new data to Excel file 'to_be_processed/existing_data.xlsx'.
+2024-12-20 20:53:15,378 - INFO - Existing file 'archive_folder/Doc (1).pdf' removed to replace with the new file.
+2024-12-20 20:53:15,378 - INFO - File 'Doc (1).pdf' moved to Archive Folder at 'archive_folder/Doc (1).pdf'.
