@@ -5,35 +5,79 @@ import shutil
 import time
 import pandas as pd
 import logging
+import sys
+import boto3
+from watchtower import CloudWatchLogHandler
 from dotenv import load_dotenv
 import mimetypes
 import base64
-import watchtower
-import boto3
 
 # Load environment variables
 load_dotenv()
 
-# Configure logging to CloudWatch
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
+# ------------------------------
+# Logging Configuration
+# ------------------------------
 
-# Create a CloudWatch handler
-session = boto3.Session()
-cw_handler = watchtower.CloudWatchLogHandler(
-    log_group='docupanda-app-logs',  # Replace with your desired Log Group name
-    stream_name='app-log-stream',    # Replace with your desired Log Stream name or make it dynamic
-    boto3_session=session
+# Define log group and stream names
+log_group_name = 'Option1_streamlit_log'  # Replace with your desired Log Group name
+log_stream_name = 'streamlit-logs'        # You can customize this name
+retention_days = 5                        # Retention policy: 5 days
+
+# Initialize boto3 client for CloudWatch Logs
+boto_client = boto3.client('logs')
+
+# Function to set log retention policy
+def set_log_retention():
+    try:
+        response = boto_client.describe_log_groups(logGroupNamePrefix=log_group_name)
+        log_groups = response.get('logGroups', [])
+        if not any(lg['logGroupName'] == log_group_name for lg in log_groups):
+            # Create log group if it doesn't exist
+            boto_client.create_log_group(logGroupName=log_group_name)
+            print(f"Created log group '{log_group_name}'.")
+        # Set retention policy
+        boto_client.put_retention_policy(
+            logGroupName=log_group_name,
+            retentionInDays=retention_days
+        )
+        print(f"Log retention policy set to {retention_days} days for log group '{log_group_name}'.")
+    except boto_client.exceptions.ResourceAlreadyExistsException:
+        # Log group already exists
+        boto_client.put_retention_policy(
+            logGroupName=log_group_name,
+            retentionInDays=retention_days
+        )
+        print(f"Log retention policy updated to {retention_days} days for log group '{log_group_name}'.")
+    except Exception as e:
+        print(f"Failed to set log retention policy: {e}")
+
+# Set log retention policy at startup
+set_log_retention()
+
+# Set up CloudWatch logging handler
+cloudwatch_handler = CloudWatchLogHandler(
+    log_group=log_group_name,
+    stream_name=log_stream_name
 )
-cw_handler.setLevel(logging.INFO)
-formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
-cw_handler.setFormatter(formatter)
-logger.addHandler(cw_handler)
 
-# Optionally, add a StreamHandler to also log locally (commented out)
-# stream_handler = logging.StreamHandler()
-# stream_handler.setFormatter(formatter)
-# logger.addHandler(stream_handler)
+# Configure the root logger
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
+logger.addHandler(cloudwatch_handler)
+
+# Custom print function to log to CloudWatch and console
+def print_to_cloudwatch(*args, **kwargs):
+    message = " ".join(str(arg) for arg in args)
+    logger.info(message)               # Log the message to CloudWatch
+    sys.__stdout__.write(message + "\n")  # Output to console
+
+# Replace the built-in print function
+sys.modules['builtins'].print = print_to_cloudwatch
+
+# ------------------------------
+# Helper Functions
+# ------------------------------
 
 def get_mime_type(filename):
     """
@@ -97,14 +141,14 @@ def upload_document(file_path, filename):
         
         # Log the successful upload with the Document ID
         document_id = response.json().get("documentId")
-        logger.info(f"Uploaded document '{filename}' to Docupanda with Document ID: {document_id}")
+        print(f"Uploaded document '{filename}' to Docupanda with Document ID: {document_id}")
         return response.json()
     
     except requests.exceptions.HTTPError as http_err:
-        logger.error(f"HTTP error occurred while uploading '{filename}': {http_err} - Response Content: {response.text}")
+        print(f"HTTP error occurred while uploading '{filename}': {http_err} - Response Content: {response.text}")
         raise
     except Exception as err:
-        logger.error(f"An unexpected error occurred while uploading '{filename}': {err}")
+        print(f"An unexpected error occurred while uploading '{filename}': {err}")
         raise
 
 def standardize_document(schema_id, document_ids):
@@ -138,13 +182,13 @@ def standardize_document(schema_id, document_ids):
     try:
         response = requests.post(url, json=payload, headers=headers)
         response.raise_for_status()
-        logger.info(f"Standardization initiated for documents: {document_ids}")
+        print(f"Standardization initiated for documents: {document_ids}")
         return response.json()
     except requests.exceptions.HTTPError as http_err:
-        logger.error(f"HTTP error occurred during standardization: {http_err} - Response Content: {response.text}")
+        print(f"HTTP error occurred during standardization: {http_err} - Response Content: {response.text}")
         raise
     except Exception as err:
-        logger.error(f"An unexpected error occurred during standardization: {err}")
+        print(f"An unexpected error occurred during standardization: {err}")
         raise
 
 def retrieve_extracted_data(standardization_id):
@@ -170,32 +214,32 @@ def retrieve_extracted_data(standardization_id):
     try:
         response = requests.get(url, headers=headers)
         response.raise_for_status()
-        logger.info(f"Retrieved data for Standardization ID: {standardization_id}")
+        print(f"Retrieved data for Standardization ID: {standardization_id}")
         
         # Attempt to parse JSON
         data = response.json()
         return data
     except ValueError:
         # If response is not JSON, handle as binary
-        logger.warning(f"Response for Standardization ID '{standardization_id}' is not JSON. Attempting to handle as binary file.")
+        print(f"Response for Standardization ID '{standardization_id}' is not JSON. Attempting to handle as binary file.")
         # Save the binary content to a file
         extracted_dir = 'extracted_data'
         if not os.path.exists(extracted_dir):
             os.makedirs(extracted_dir)
-            logger.info(f"Created directory '{extracted_dir}'.")
+            print(f"Created directory '{extracted_dir}'.")
         
         file_path = os.path.join(extracted_dir, f"{standardization_id}.zip")
         with open(file_path, 'wb') as f:
             f.write(response.content)
         
-        logger.info(f"Extracted data saved as '{file_path}'.")
+        print(f"Extracted data saved as '{file_path}'.")
         st.info(f"Extracted data saved as '{file_path}'. Please check the 'extracted_data' folder.")
         return None  # Or return the file path if needed
     except requests.exceptions.HTTPError as http_err:
-        logger.error(f"HTTP error occurred while retrieving data for Standardization ID '{standardization_id}': {http_err} - Response Content: {response.text}")
+        print(f"HTTP error occurred while retrieving data for Standardization ID '{standardization_id}': {http_err} - Response Content: {response.text}")
         raise
     except Exception as err:
-        logger.error(f"An unexpected error occurred while retrieving data for Standardization ID '{standardization_id}': {err}")
+        print(f"An unexpected error occurred while retrieving data for Standardization ID '{standardization_id}': {err}")
         raise
 
 def save_uploaded_file(uploaded_file):
@@ -211,11 +255,11 @@ def save_uploaded_file(uploaded_file):
     input_dir = 'input_folder'
     if not os.path.exists(input_dir):
         os.makedirs(input_dir)
-        logger.info(f"Created input directory '{input_dir}'.")
+        print(f"Created input directory '{input_dir}'.")
     file_path = os.path.join(input_dir, uploaded_file.name)
     with open(file_path, "wb") as f:
         f.write(uploaded_file.getbuffer())
-    logger.info(f"File '{uploaded_file.name}' uploaded and saved to '{input_dir}'.")
+    print(f"File '{uploaded_file.name}' uploaded and saved to '{input_dir}'.")
     return file_path
 
 def archive_file(file_path):
@@ -231,7 +275,7 @@ def archive_file(file_path):
     # Create the archive directory if it doesn't exist
     if not os.path.exists(archive_dir):
         os.makedirs(archive_dir)
-        logger.info(f"Created archive directory '{archive_dir}'.")
+        print(f"Created archive directory '{archive_dir}'.")
     
     # Define the destination path
     destination = os.path.join(archive_dir, os.path.basename(file_path))
@@ -240,14 +284,14 @@ def archive_file(file_path):
         # Check if the file already exists in the archive
         if os.path.exists(destination):
             os.remove(destination)
-            logger.info(f"Existing file '{destination}' removed to replace with the new file.")
+            print(f"Existing file '{destination}' removed to replace with the new file.")
         
         # Move the file to the archive directory
         shutil.move(file_path, destination)
-        logger.info(f"File '{os.path.basename(file_path)}' moved to Archive Folder at '{destination}'.")
+        print(f"File '{os.path.basename(file_path)}' moved to Archive Folder at '{destination}'.")
     
     except Exception as e:
-        logger.error(f"Failed to archive file '{file_path}': {e}")
+        print(f"Failed to archive file '{file_path}': {e}")
         st.error(f"An error occurred while archiving the file: {e}")
         raise
 
@@ -267,34 +311,34 @@ def save_data_to_excel(data, output_file='to_be_processed/existing_data.xlsx'):
     output_dir = os.path.dirname(output_file)
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
-        logger.info(f"Created output directory '{output_dir}'.")
+        print(f"Created output directory '{output_dir}'.")
     
     try:
         if not os.path.isfile(output_file):
             # File doesn't exist; create it with headers
             new_df.to_excel(output_file, index=False)
-            logger.info(f"Created new Excel file '{output_file}' and saved data.")
+            print(f"Created new Excel file '{output_file}' and saved data.")
         else:
             # File exists; read existing data
             existing_df = pd.read_excel(output_file)
-            logger.info(f"Existing Excel file '{output_file}' read successfully.")
+            print(f"Existing Excel file '{output_file}' read successfully.")
             
             # Combine existing and new dataframes
             combined_df = pd.concat([existing_df, new_df], ignore_index=True, sort=False)
-            logger.info("Dataframes concatenated successfully.")
+            print("Dataframes concatenated successfully.")
             
             # Save the combined dataframe back to Excel
             combined_df.to_excel(output_file, index=False)
-            logger.info(f"Appended new data to Excel file '{output_file}'.")
+            print(f"Appended new data to Excel file '{output_file}'.")
     
     except Exception as e:
-        logger.error(f"Error saving data to Excel: {e}. Attempting to recreate the Excel file.")
+        print(f"Error saving data to Excel: {e}. Attempting to recreate the Excel file.")
         try:
             # Attempt to recreate the Excel file
             new_df.to_excel(output_file, index=False)
-            logger.info(f"Recreated and saved data to '{output_file}'.")
+            print(f"Recreated and saved data to '{output_file}'.")
         except Exception as recreate_err:
-            logger.critical(f"Failed to recreate Excel file '{output_file}': {recreate_err}")
+            print(f"Failed to recreate Excel file '{output_file}': {recreate_err}")
             st.error(f"Failed to save extracted data to Excel: {recreate_err}")
             raise
 
@@ -311,14 +355,18 @@ def save_data_to_csv(data, output_file='to_be_processed/existing_data.csv'):
     output_dir = os.path.dirname(output_file)
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
-        logger.info(f"Created output directory '{output_dir}'.")
+        print(f"Created output directory '{output_dir}'.")
     # If file doesn't exist, create it with headers
     if not os.path.isfile(output_file):
         df.to_csv(output_file, index=False)
-        logger.info(f"Created new CSV file '{output_file}' and saved data.")
+        print(f"Created new CSV file '{output_file}' and saved data.")
     else:
         df.to_csv(output_file, mode='a', index=False, header=False)
-        logger.info(f"Appended data to existing CSV file '{output_file}'.")
+        print(f"Appended data to existing CSV file '{output_file}'.")
+
+# ------------------------------
+# Main Application
+# ------------------------------
 
 def main():
     st.set_page_config(page_title="Docupanda Processor", layout="centered")
@@ -337,7 +385,7 @@ def main():
                     # Upload to Docupanda
                     upload_response = upload_document(file_path, uploaded_file.name)
                     document_id = upload_response.get("documentId")
-                    logger.info(f"Uploaded '{uploaded_file.name}' to Docupanda with Document ID: {document_id}")
+                    print(f"Uploaded '{uploaded_file.name}' to Docupanda with Document ID: {document_id}")
                     
                     st.success(f"File uploaded to Docupanda. Document ID: {document_id}")
                     
@@ -345,7 +393,7 @@ def main():
                     schema_id = os.getenv("SCHEMA_ID")
                     if not schema_id:
                         st.error("SCHEMA_ID is not set in environment variables.")
-                        logger.error("SCHEMA_ID is missing.")
+                        print("SCHEMA_ID is missing.")
                         raise ValueError("SCHEMA_ID is missing.")
                     
                     st.info("Initiating standardization process...")
@@ -355,11 +403,11 @@ def main():
                     
                     if not standardization_ids:
                         st.error("No Standardization ID returned from Docupanda.")
-                        logger.error("No Standardization ID returned from Docupanda.")
+                        print("No Standardization ID returned from Docupanda.")
                         raise ValueError("No Standardization ID returned.")
                     
                     standardization_id = standardization_ids[0]
-                    logger.info(f"Standardization initiated with Standardization ID: {standardization_id}")
+                    print(f"Standardization initiated with Standardization ID: {standardization_id}")
                     
                     st.success(f"Document standardization initiated. Standardization ID: {standardization_id}")
                     
@@ -383,7 +431,7 @@ def main():
                             
                             if data_response and 'data' in data_response:
                                 extracted_data = data_response['data']
-                                logger.info(f"Extracted data retrieved for Standardization ID: {standardization_id}")
+                                print(f"Extracted data retrieved for Standardization ID: {standardization_id}")
                                 
                                 # Save extracted data
                                 save_data_to_excel(extracted_data)
@@ -430,29 +478,25 @@ def main():
                     
                     if not extracted:
                         st.error("Document processing is taking longer than expected. Please try retrieving the data later.")
-                        logger.error(f"Standardization ID '{standardization_id}' timed out after {max_attempts * poll_interval} seconds.")
+                        print(f"Standardization ID '{standardization_id}' timed out after {max_attempts * poll_interval} seconds.")
             
             except requests.exceptions.HTTPError as http_err:
                 st.error(f"HTTP error occurred: {http_err}. Please check your API configuration.")
-                logger.error(f"HTTP error occurred: {http_err}")
+                print(f"HTTP error occurred: {http_err}")
             except ValueError as val_err:
                 st.error(f"Configuration error: {val_err}.")
-                logger.error(f"Configuration error: {val_err}")
+                print(f"Configuration error: {val_err}")
             except Exception as e:
                 st.error(f"An error occurred: {e}")
-                logger.error(f"Error processing file '{uploaded_file.name}': {str(e)}")
+                print(f"Error processing file '{uploaded_file.name}': {str(e)}")
         else:
             st.warning("Please upload a file to process.")
 
     # Optionally, display logs (Local logs are not used; this section can be removed or adapted)
     if st.checkbox("Show Logs"):
-        log_file_path = "logs/app.log"  # Update or remove if not using local logs
-        if os.path.exists(log_file_path):
-            with open(log_file_path, "r") as log_file:
-                logs = log_file.read()
-                st.text_area("Application Logs", logs, height=300)
-        else:
-            st.warning("Log file does not exist.")
+        # Since we're sending logs to CloudWatch, local logs may not exist
+        # You can remove this section or implement a way to fetch logs from CloudWatch if desired
+        st.warning("Local log file display is not available. Logs are sent to AWS CloudWatch.")
 
 if __name__ == "__main__":
     main()
